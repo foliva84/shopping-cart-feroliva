@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import './App.css';
+import { Container } from "react-bootstrap";
+import Navbar from "./components/Navbar/Navbar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 
 function App() {
+  const pages = [
+    { id: 1, text: "Inicio", path: "./", active: true },
+    { id: 2, text: "Shop", path: "./shop", active: false },
+    { id: 3, text: "Contacto", path: "./contacto", active: false }
+  ];
+
+  let saludo = "Las mejores ofertas!!!";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Container>
+        <Navbar storeName="Supermarket" pages={pages} />
+        <ItemListContainer greeting={saludo} />
+      </Container>
+    </>
   );
 }
 
