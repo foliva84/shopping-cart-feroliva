@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './App.css';
 import { Container } from "react-bootstrap";
-import Navbar from "./components/Navbar/Navbar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import Navbar from "./Components/Navbar/Navbar";
+import ItemListContainer from "./Containers/ItemListContainer";
 
 function App() {
   const pages = [

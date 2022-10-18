@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import Item from "../Item/Item";
 
 const ItemList = ({ products, loading }) => {
