@@ -5,11 +5,11 @@ const ItemList = ({ products }) => {
     
     return (
         <>
-            <ul>
+            <div className="row">
                 { 
-                    products.map(current => <Item product={current}/>)
+                    products.map(current => <Item key={current.id} product={current}/>)
                 }
-            </ul>
+            </div>
         </>
     )
 }
