@@ -13,9 +13,9 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         fetch("https://fakestoreapi.com/products/")
         .then(res => res.json())
-        .then(json => {
+        .then(data => {
             setTimeout(() => {
-                setProducts(json);
+                setProducts(data);
                 setLoading(false);
             }, 2000);
         })
