@@ -4,6 +4,7 @@ const Item = ({product}) => {
     
     return (
         <>
+        
             <li key={product.id}>{product.title}: {product.price}</li>
         </>
     )

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import ItemCount from '../ItemCount/ItemCount'
+import LoadingSpinner from "../Components/LoadingSpinner/LoadingSpinner";
 import ItemList from "./ItemList/ItemList";
 
 const dataProducts = [
@@ -65,12 +65,9 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <>
             <h4>{greeting}</h4>
-            {/* <ItemCount 
-                onAdd={onAdd}
-                initial={1}
-                stock={0}
-            /> */}
-            <ItemList products={products} loading={loading} />
+            <>
+                {loading ? <LoadingSpinner /> : <ItemList products={products} />}
+            </>
         </>
     )
 }

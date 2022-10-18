@@ -8,8 +8,7 @@ const ItemList = ({ products, loading }) => {
         <>
             <ul>
                 { 
-                  loading ? <LoadingSpinner />
-                  : products.map(current => <Item product={current}/>)
+                    products.map(current => <Item product={current}/>)
                 }
             </ul>
         </>
