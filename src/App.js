@@ -4,7 +4,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import './App.css';
 import { Container } from "react-bootstrap";
 import Navbar from "./Components/Navbar/Navbar";
-import ItemListContainer from "./Containers/ItemListContainer";
+import ItemListContainer from "./Containers/ItemListContainer/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./Containers/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   const pages = [
@@ -20,6 +21,7 @@ function App() {
       <Container>
         <Navbar storeName="Supermarket" pages={pages} />
         <ItemListContainer greeting={saludo} />
+        {/* <ItemDetailContainer /> */}
       </Container>
     </>
   );
