@@ -6,14 +6,22 @@
 // children es una palabra reservada 
 import React from "react"
 import CartWidget from "../CartWidget/CartWidget";
+import { Link as LinkRRD } from "react-router-dom";
 
-const Navbar = ({ storeName, pages }) => {
+const Navbar = ({ storeName }) => {
+      const categories = [
+        { id: 0, text: "electronics ", path: "/categoria/electronics", active: true },
+        { id: 1, text: "jewelery ",  path: "/categoria/jewelery", active: false },
+        { id: 3, text: "men's clothing ", path: "/categoria/men's clothing", active: false },
+        { id: 4, text: "women's clothing ", path: "/categoria/women's clothing", active: false },
+    ]; 
+
     return (
         <>
             <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-light ">
                     <div className="container-fluid pe-lg-2 p-0">
-                        <a className="navbar-brand fw-bold fs-3" href="./">{storeName}</a>
+                        <LinkRRD className="navbar-brand fw-bold fs-3" to="/">{storeName}</LinkRRD>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -22,39 +30,30 @@ const Navbar = ({ storeName, pages }) => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 {
-                                    pages.map((page, index) => {
-                                        const { id, path, text, active } = page;
+                                    categories.map((category, index) => {
+                                        const { id, path, text, active } = category;
 
                                         let classNameLink = "nav-link pe-3 me-4 fw-bold";
                                         classNameLink = active ? (classNameLink += " active") : classNameLink;
 
-                                        return (<li key={id} className="nav-item">
-                                            <a
-                                                href={path}
+                                        return (<li key={index} className="nav-item">
+                                            <LinkRRD
+                                                key={category.id} 
+                                                to={category.path}
                                                 className={classNameLink}
                                                 aria-current="page">
                                                 {text}
-                                            </a>
+                                            </LinkRRD>
                                         </li>)
                                     })
                                 }
                             </ul>
                             <ul className="navbar-nav icons ms-auto mb-2 mb-lg-0">
                                 <li className=" nav-item pe-3">
-                                    <a href="./" className="fas fa-heart">
-                                        {/* <span className="num rounded-circle">1</span> */}
+                                    <LinkRRD to="/cart" className="fas fa-heart">
                                         <CartWidget />
-                                    </a>
+                                    </LinkRRD>
                                 </li>
-                                {/* <li className=" nav-item pe-3">
-                                    <a href="./" className="fas fa-shopping-bag">
-                                        <span className="num rounded-circle">3</span>
-                                    </a>
-                                </li>
-                                <li className=" nav-item">
-                                    <span className="">items:</span>
-                                    <span className="fw-bold">$150.00</span>
-                                </li> */}
                             </ul>
                         </div>
                     </div>

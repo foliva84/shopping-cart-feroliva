@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import LoadingSpinner from "../../../Components/LoadingSpinner/LoadingSpinner";
 import ItemList from "../ItemList/ItemList";
+import { useParams } from 'react-router-dom';
+
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // const onAdd = (count) => {
-    //     console.log(`El usuario quiere agregar ${count} productos`);
-    // };
+    const { id } = useParams();
+
+    const URL_BASE = "https://fakestoreapi.com/products";
+    const URL_CAT = `${URL_BASE}/category/${id}`;
 
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products/")
-        .then(res => res.json())
-        .then(data => {
-            setTimeout(() => {
+
+        const getProducts = async () => {
+            try {
+                const response = await fetch(id ? URL_CAT : URL_BASE);
+                const data = await response.json();
                 setProducts(data);
                 setLoading(false);
-            }, 2000);
-        })
-        .catch(err => console.log(err))
-    }, []);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        getProducts();
+    }, [id]);
 
     return (
         <>
