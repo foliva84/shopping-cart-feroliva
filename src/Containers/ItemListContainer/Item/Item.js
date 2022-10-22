@@ -4,7 +4,6 @@ import { Link as LinkRRD } from "react-router-dom";
 const Item = ({product}) => {
     
     const { image, title, price, id} = product;
-    const PATH_DETAIL=`/item/${id}`;
     
     return (
         <>
@@ -14,7 +13,7 @@ const Item = ({product}) => {
                     <p className="card-text">Titulo: {title}</p>
                     <p className="card-text">Precio: ${price}</p>
                 </div>
-                <LinkRRD to={"/item/" + producto.id}>
+                <LinkRRD to={"/item/" + product.id}>
                     <button className="btn btn-secondary botonesProductos">Ver Detalles</button>
                 </LinkRRD>
             </div>        
