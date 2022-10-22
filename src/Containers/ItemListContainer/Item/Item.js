@@ -14,7 +14,7 @@ const Item = ({product}) => {
                     <p className="card-text">Titulo: {title}</p>
                     <p className="card-text">Precio: ${price}</p>
                 </div>
-                <LinkRRD to={PATH_DETAIL}>
+                <LinkRRD to={"/item/" + producto.id}>
                     <button className="btn btn-secondary botonesProductos">Ver Detalles</button>
                 </LinkRRD>
             </div>        

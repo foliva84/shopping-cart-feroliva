@@ -9,9 +9,8 @@ const ItemDetailContainer = () => {
 
     const {id} = useParams();
 
-    const URL_BASE = "https://fakestoreapi.com/products";
-    const URL_DETAIL = `${URL_BASE}/${id}`;
-
+    const URL_DETAIL = "https://fakestoreapi.com/products" + id;
+    
     useEffect(() => {
         const getItem = async () =>{
             try {
