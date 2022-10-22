@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as LinkRRD } from "react-router-dom";
 
 const Item = ({product}) => {
     const { image, title, price} = product;
@@ -11,6 +12,9 @@ const Item = ({product}) => {
                     <p className="card-text">Titulo: {title}</p>
                     <p className="card-text">Precio: ${price}</p>
                 </div>
+                <LinkRRD to="/cart">
+                    <button className="btn btn-secondary botonesProductos">Ver Detalles</button>
+                </LinkRRD>
             </div>        
         </>
     )
