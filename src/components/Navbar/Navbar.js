@@ -10,10 +10,10 @@ import { Link as LinkRRD } from "react-router-dom";
 
 const Navbar = ({ storeName }) => {
       const categories = [
-        { id: 0, text: "electronics ", path: "/categoria/electronics", active: true },
-        { id: 1, text: "jewelery ",  path: "/categoria/jewelery", active: false },
-        { id: 3, text: "men's clothing ", path: "/categoria/men's clothing", active: false },
-        { id: 4, text: "women's clothing ", path: "/categoria/women's clothing", active: false },
+        { id: 0, text: "electronics ", path: "/categoria/electronics" },
+        { id: 1, text: "jewelery ",  path: "/categoria/jewelery" },
+        { id: 3, text: "men's clothing ", path: "/categoria/men's clothing" },
+        { id: 4, text: "women's clothing ", path: "/categoria/women's clothing" },
     ]; 
 
     return (
@@ -34,7 +34,7 @@ const Navbar = ({ storeName }) => {
                                         const { id, path, text, active } = category;
 
                                         let classNameLink = "nav-link pe-3 me-4 fw-bold";
-                                        classNameLink = active ? (classNameLink += " active") : classNameLink;
+                                        // classNameLink = active ? (classNameLink += " active") : classNameLink;
 
                                         return (<li key={index} className="nav-item">
                                             <LinkRRD
