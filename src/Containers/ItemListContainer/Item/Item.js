@@ -2,8 +2,10 @@ import React from 'react';
 import { Link as LinkRRD } from "react-router-dom";
 
 const Item = ({product}) => {
-    const { image, title, price} = product;
-
+    
+    const { image, title, price, id} = product;
+    const PATH_DETAIL=`/item/${id}`;
+    
     return (
         <>
             <div className="card border-primary mb-3" style={styles.card}>
@@ -12,7 +14,7 @@ const Item = ({product}) => {
                     <p className="card-text">Titulo: {title}</p>
                     <p className="card-text">Precio: ${price}</p>
                 </div>
-                <LinkRRD to="/cart">
+                <LinkRRD to={PATH_DETAIL}>
                     <button className="btn btn-secondary botonesProductos">Ver Detalles</button>
                 </LinkRRD>
             </div>        
