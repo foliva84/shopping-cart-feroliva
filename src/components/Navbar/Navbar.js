@@ -31,15 +31,15 @@ const Navbar = ({ storeName }) => {
                             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 {
                                     categories.map((category, index) => {
-                                        const { id, path, text, active } = category;
+                                        const { id, path, text } = category;
 
                                         let classNameLink = "nav-link pe-3 me-4 fw-bold";
                                         // classNameLink = active ? (classNameLink += " active") : classNameLink;
 
                                         return (<li key={index} className="nav-item">
                                             <LinkRRD
-                                                key={category.id} 
-                                                to={category.path}
+                                                key={id} 
+                                                to={path}
                                                 className={classNameLink}
                                                 aria-current="page">
                                                 {text}
@@ -64,7 +64,3 @@ const Navbar = ({ storeName }) => {
 }
 
 export default Navbar
-
-
-
-
