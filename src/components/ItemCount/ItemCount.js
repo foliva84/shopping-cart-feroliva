@@ -17,33 +17,21 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         }
     }
 
-    const addToCart = () => {
-        setFinalizarCompra(true);
-        onAdd(count);
-    };
+    // const addToCart = () => {
+    //     onAdd(count);
+    // };
 
     return (
         <>
-            {
-                (!finalizarCompra ? 
-                    (
-                        <>
-                        <button onClick={substract}>-</button>
-                        <h2>{count}</h2>
-                        <button onClick={add}>+</button>                        
-                        <button disabled={ stock === 0 } onClick={ () => addToCart() }>
-                            <span>{ stock === 0 ? "No hay stock" : "Agregar al carrito" }</span>
-                        </button>
-                        </>
-                    ): 
-                        <LinkRRD to={"/cart/"}>
-                            <button className="btn btn-secondary botonesProductos">Finalizar Compra</button>
-                        </LinkRRD>        
-                    )
-            }
-            {/* // <button disabled={ stock === 0 } onClick={ () => addToCart() }>
-            //     <span>{ stock === 0 ? "No hay stock" : "Agregar al carrito" }</span>
-            // </button> */}
+            <button onClick={substract}>-</button>
+            <h2>{count}</h2>
+            <button onClick={add}>+</button>
+            <button disabled={stock===0} onClick={ () => onAdd(count)  }>
+                <span>{ stock === 0 ? "No hay stock" : "Agregar al carrito" }</span>
+            </button>
+            {/* <button disabled={stock===0} onClick={addToCart}>
+                <span>{ stock === 0 ? "No hay stock" : "Agregar al carrito" }</span>
+            </button> */}
         </>
     )
 }

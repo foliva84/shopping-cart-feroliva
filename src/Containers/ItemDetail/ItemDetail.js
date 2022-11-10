@@ -1,11 +1,14 @@
- import React from "react";
+ import React, { useState } from "react";
 import ItemCount from "../../Components/ItemCount/ItemCount";
+import { Link as LinkRRD } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
     const {title, image, description, price} = item;
+    const [showItemCount, setShowItemCount] = useState(true);
 
-    const onAdd = (count) => {
+    const onAdd = (count) => {      
       console.log(`El usuario quiere agregar ${count} productos`);
+      setShowItemCount(false);
     };
 
     return (
@@ -16,7 +19,15 @@ const ItemDetail = ({ item }) => {
           <span>{description}</span>
           <h2>${price}</h2>
         </div>
-        <ItemCount initial={1} stock={3} onAdd={ onAdd } />
+        {
+          showItemCount ? (
+            <ItemCount initial={1} stock={3} onAdd={ onAdd } />
+          ) : (
+            <LinkRRD to={"/cart/"}>
+              <button className="btn btn-secondary botonesProductos">Finalizar Compra</button>
+            </LinkRRD>
+          )
+        }
         </>
       );
 }
